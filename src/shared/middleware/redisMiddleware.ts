@@ -1,0 +1,36 @@
+import { NextFunction, Request, Response } from "express";
+import { redisClient } from "../redis.js";
+
+export async function redisMiddleware(req:Request, res: Response, next: NextFunction) {
+    const key = `cache:${req.originalUrl || req.url}`
+
+    try {
+        const cachedData = await redisClient.get(key)
+
+        if(cachedData) {
+            console.log(`[Redis] Cache HIT para chave ${key}`)
+
+            return res.json(JSON.parse(cachedData))
+        }
+
+        console.log(`[Postgres] Cache MISS para chave: ${key}`)
+
+        const originaLJson = res.json
+
+        res.json = function (body) {
+            res.json = originaLJson
+
+            if(res.statusCode === 200) {
+                redisClient.setEx(key, 300, JSON.stringify(body))
+                    .catch(err => console.error('Erro ao salvar no Redis', err))
+            }
+
+            return res.json(body)
+        }
+
+        return next()
+    }catch(err) {
+        console.error('Erro no middleware de cache', err)
+        return next()
+    }
+}
