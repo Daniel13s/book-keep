@@ -42,4 +42,11 @@ export class MyBookRepository implements Idatabase {
 
         return response
     }
+    async delete(id:string) {
+        const response = await prisma.myBook.delete({
+            where: {id}
+        })
+
+        return response
+    }
 }

@@ -6,6 +6,7 @@ import { makeUpdateBookController } from "./update/factory.js";
 import {PrismaRepository} from "./infra/prismaRepository/reposiotryGlobal.js"
 import { middleware } from "../../shared/middleware/middleware.js";
 import { redisMiddleware } from "../../shared/middleware/redisMiddleware.js";
+import { makeDeleteBookController } from "./delete/factory.js";
 
 export const routesBook = Router()
 
@@ -15,7 +16,9 @@ const database = new PrismaRepository()
 const createBook = makeCreateBookController(database)
 const listBook = makeListBookController(database)
 const updateBook = makeUpdateBookController(database)
+const deleteBook = makeDeleteBookController(database)
 
 routesBook.post("/book", middleware, createBook.execute.bind(createBook))
 routesBook.get("/book", middleware, redisMiddleware, listBook.execute.bind(listBook))
 routesBook.put("/book/:id", middleware, updateBook.execute.bind(updateBook))
+routesBook.delete("/book/:id", middleware, deleteBook.execute.bind(deleteBook))

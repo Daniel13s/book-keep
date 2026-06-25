@@ -16,4 +16,16 @@ export class DatabaseBook {
 
         return book
     }
+    async delete(id:string) {
+        const response = this.book.filter(book => book.id !== id)
+
+        this.book = response
+        
+        return response
+    }
+    async findBook(id:string) {
+        const response = await this.book.find(book => book.id === id)
+
+        return response
+    }
 }
