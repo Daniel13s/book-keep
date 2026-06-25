@@ -24,4 +24,11 @@ export class DatabaseMyBook {
 
         return book
     }
+    async delete(id:string) {
+        const response = this.myBook.filter(book => book.id !== id)
+
+        this.myBook = response
+        
+        return response
+    }
 }

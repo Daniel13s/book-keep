@@ -8,7 +8,7 @@ let id: string;
 
 beforeAll(async () => {
     const register = await request(app)
-        .post("/auth")
+        .post("/register")
         .send({
             name: "Daniel Silva",
             email: "dansilvac254@gmail.com",
@@ -16,7 +16,7 @@ beforeAll(async () => {
         })
 
     const login = await request(app)
-        .get("/auth")
+        .post("/login")
         .send({
             email: "dansilvac254@gmail.com",
             password: "Danielsilvac254!"
@@ -28,6 +28,7 @@ beforeAll(async () => {
         .post("/book")
         .set("Authorization", `Bearer ${token}`)
         .send({
+            imageUrl: "asjdklajksdjas",
             title: "harry potter",
             description: "livro muito legal",
             author: "J.K Howling",

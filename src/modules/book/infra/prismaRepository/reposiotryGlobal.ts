@@ -35,11 +35,16 @@ export class PrismaRepository {
 
         return response
     }
-    async search(search:string, limit:number, page:number) {
-        const response = await prisma.book.findMany({
-            where: {title: search},
-            take: limit,
-            skip: (page - 1) * limit
+    async delete(id:string) {
+        const response = await prisma.book.delete({
+            where: {id}
+        })
+
+        return response
+    }
+    async findBook(id:string) {
+        const response = await prisma.book.findFirst({
+            where: {id}
         })
 
         return response

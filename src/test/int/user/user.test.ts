@@ -1,7 +1,6 @@
 import { beforeAll, expect, test } from "vitest";
 import request from "supertest"
 import { app } from "../../../app.js";
-import { before } from "node:test";
 import { prisma } from "../../../infra/prisma.js";
 
 beforeAll(async () => {
@@ -9,7 +8,7 @@ beforeAll(async () => {
 })
 test("should register a user.", async () => {
     const response = await request(app)
-        .post("/auth")
+        .post("/register")
         .send({
             name: "Daniel Silva",
             email: "eudandev@gmail.com",
@@ -20,7 +19,7 @@ test("should register a user.", async () => {
 })
 test("should log in a user.", async () => {
     const response = await request(app)
-        .get("/auth")
+        .post("/login")
         .send({
             email: "eudandev@gmail.com",
             password: "eudandev25"
