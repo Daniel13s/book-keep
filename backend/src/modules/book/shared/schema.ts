@@ -11,6 +11,7 @@ export const paramSchema = z.object({
     id: z.string().optional(),
 })
 export const querySchema = z.object({
+    category: z.string().optional(),
     search: z.string().optional(),
     limit: z.string(),
     page: z.string()

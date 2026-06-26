@@ -8,20 +8,23 @@ export class PrismaRepository {
 
         return response
     }
-    async list(search: string, limit: number, page: number){
+    async list(category: string, search: string, limit: number, page: number){
         const response = await prisma.book.findMany({
             where: {
                 ...(search&&{
                     title: {
                         contains: search,
                     }
+                }),
+                ...(category&&{
+                    category: {
+                        contains: category,
+                    }
                 })
             },
             take: limit,
             skip: (page - 1) * limit
         })
-
-        console.log(response)
 
         return response
     }

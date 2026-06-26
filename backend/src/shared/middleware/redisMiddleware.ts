@@ -5,6 +5,11 @@ export async function redisMiddleware(req:Request, res: Response, next: NextFunc
     const key = `cache:${req.originalUrl || req.url}`
 
     try {
+        if(req.method === 'POST' || req.method === "DELETE") {
+            await redisClient.flushAll()
+
+            return next()
+        }
         const cachedData = await redisClient.get(key)
 
         if(cachedData) {

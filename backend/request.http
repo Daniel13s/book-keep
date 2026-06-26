@@ -1,9 +1,9 @@
-DELETE http://localhost:3333/book/1f2c6f00-2602-465a-bff5-711d94e42779
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjBkZTcyMzFiLWU5OTQtNDFjNy1iYjE1LWNmMzQxY2U4MzRkNiIsIm5hbWUiOiJEYW5pZWwgU2lsdmEiLCJpYXQiOjE3ODIwOTY2MzcsImV4cCI6MTc4MjA5NzUzN30.gEz4J2lA699s-ZkJwzMybyshVweoEHr83AkxzXEtoAw
+DELETE http://localhost:3333/book/a7145425-5c09-484e-b824-7e1179b3d2ab
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk5OTI1ZWJjLWViODktNDNhMy1hMTZkLTc5ZGJjMjM2NzI3ZiIsIm5hbWUiOiJEYW5pZWwgc2lsdmEiLCJpYXQiOjE3ODI0NDE5MDYsImV4cCI6MTc4MjQ0MjgwNn0.YC57JhxTGMQr7-Nf_ihexsO8RRYJ5DNRYyawIKT4Kuk
 
 ###
-GET http://localhost:3333/book?limit=5&page=1
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk5OTI1ZWJjLWViODktNDNhMy1hMTZkLTc5ZGJjMjM2NzI3ZiIsIm5hbWUiOiJEYW5pZWwgc2lsdmEiLCJpYXQiOjE3ODIwOTc5MDYsImV4cCI6MTc4MjA5ODgwNn0.47iZsArL0HNTseC6imzrTmWA-XHUqhvkOkOIK--H8dY
+GET http://localhost:3333/book?limit=5&page=1&search=Cora
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk5OTI1ZWJjLWViODktNDNhMy1hMTZkLTc5ZGJjMjM2NzI3ZiIsIm5hbWUiOiJEYW5pZWwgc2lsdmEiLCJpYXQiOjE3ODI0NDIzMDQsImV4cCI6MTc4MjQ0MzIwNH0.I5PejoYgE0WCGolUMAG7fOdeb7MG5gyNwE54_dWea68
 
 ###
 POST http://localhost:3333/login
@@ -22,4 +22,16 @@ Content-Type: application/json
     "name": "Daniel silva",
     "email": "danielsilva@gmail.com",
     "password": "danielsilva"
+}
+###
+POST http://localhost:3333/book
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk5OTI1ZWJjLWViODktNDNhMy1hMTZkLTc5ZGJjMjM2NzI3ZiIsIm5hbWUiOiJEYW5pZWwgc2lsdmEiLCJpYXQiOjE3ODI0NDIzMDQsImV4cCI6MTc4MjQ0MzIwNH0.I5PejoYgE0WCGolUMAG7fOdeb7MG5gyNwE54_dWea68
+
+{
+    "imageUrl": "https://m.media-amazon.com/images/I/71fWaI5myqL.jpg",
+    "title": "Diaria de um banana",
+    "description": "Livro bem legal",
+    "category": "comedia",
+    "author": "Jeff Kinney"
 }

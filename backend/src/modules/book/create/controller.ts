@@ -9,10 +9,10 @@ export class CreateBookController {
 
             const book = {
                 imageUrl,
-                title,
+                title: title.toLowerCase,
                 description,
                 author,
-                category
+                category: category.toLowerCase
             }
 
             const response = await this.service.execute(book)
