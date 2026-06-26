@@ -5,14 +5,12 @@ export class ListBookController {
     constructor(public service: any){}
     async execute(req: Request, res: Response, next: NextFunction) {
         try{
-            const {search, limit, page} = querySchema.parse(req.query)
+            const {category, search, limit, page} = querySchema.parse(req.query)
 
             const limitNum = Number(limit)
             const pageNum = Number(page)
 
-            console.log(search)
-
-            const response = await this.service.execute(search, limitNum, pageNum)
+            const response = await this.service.execute(category?.toLowerCase, search?.toLowerCase, limitNum, pageNum)
 
             return res.status(200).json({books: response})
         } catch(err){
