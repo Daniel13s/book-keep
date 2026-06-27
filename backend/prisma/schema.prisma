@@ -11,6 +11,11 @@ generator client {
 datasource db {
   provider = "postgresql"
 }
+enum ReadingStatus {
+  FECHADO
+  LENDO
+  LIDO
+}
 
 model Book {
   id  String @id @default(uuid())
@@ -29,7 +34,7 @@ model MyBook {
   description String
   author  String
   category  String
-  isReaded  Boolean @default(false)
+  status  ReadingStatus @default(FECHADO)
   userId String
 }
 
