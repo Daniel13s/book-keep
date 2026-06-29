@@ -1,9 +1,9 @@
-DELETE http://localhost:3333/book/a7145425-5c09-484e-b824-7e1179b3d2ab
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk5OTI1ZWJjLWViODktNDNhMy1hMTZkLTc5ZGJjMjM2NzI3ZiIsIm5hbWUiOiJEYW5pZWwgc2lsdmEiLCJpYXQiOjE3ODI0NDE5MDYsImV4cCI6MTc4MjQ0MjgwNn0.YC57JhxTGMQr7-Nf_ihexsO8RRYJ5DNRYyawIKT4Kuk
+DELETE http://localhost:3333/book/6d92ac79-d428-4a9a-b9f6-e414970d0fda
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk5OTI1ZWJjLWViODktNDNhMy1hMTZkLTc5ZGJjMjM2NzI3ZiIsIm5hbWUiOiJEYW5pZWwgc2lsdmEiLCJpYXQiOjE3ODI1MjYzMzcsImV4cCI6MTc4MjUyNzIzN30.FDzASx8sGpQTbHLIYbRnzg3yHOh8SEid4qobZf7Np6U
 
 ###
-GET http://localhost:3333/book?limit=5&page=1&search=Cora
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk5OTI1ZWJjLWViODktNDNhMy1hMTZkLTc5ZGJjMjM2NzI3ZiIsIm5hbWUiOiJEYW5pZWwgc2lsdmEiLCJpYXQiOjE3ODI0NDIzMDQsImV4cCI6MTc4MjQ0MzIwNH0.I5PejoYgE0WCGolUMAG7fOdeb7MG5gyNwE54_dWea68
+GET http://localhost:3333/book?limit=5&page=1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImIxMDRkM2EwLTRjZGItNDk3YS1hOTQ5LTU2M2NiNzI0NTVkZiIsIm5hbWUiOiJEYW5pZWwgc2lsdmEiLCJpYXQiOjE3ODI1Mjg3MjgsImV4cCI6MTc4MjUyOTYyOH0.bP3jy-4ATVLauUUjQCYab1llEflKd5UpYy8yt60wDek
 
 ###
 POST http://localhost:3333/login
@@ -26,12 +26,29 @@ Content-Type: application/json
 ###
 POST http://localhost:3333/book
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk5OTI1ZWJjLWViODktNDNhMy1hMTZkLTc5ZGJjMjM2NzI3ZiIsIm5hbWUiOiJEYW5pZWwgc2lsdmEiLCJpYXQiOjE3ODI0NDIzMDQsImV4cCI6MTc4MjQ0MzIwNH0.I5PejoYgE0WCGolUMAG7fOdeb7MG5gyNwE54_dWea68
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImIxMDRkM2EwLTRjZGItNDk3YS1hOTQ5LTU2M2NiNzI0NTVkZiIsIm5hbWUiOiJEYW5pZWwgc2lsdmEiLCJpYXQiOjE3ODI1MjgxODIsImV4cCI6MTc4MjUyOTA4Mn0.0JvLlC876nekkHbZ_v_qkbkEOjgu3SPwjv2tUC2EEx0
 
 {
     "imageUrl": "https://m.media-amazon.com/images/I/71fWaI5myqL.jpg",
-    "title": "Diaria de um banana",
+    "title": "Diario de um banana",
     "description": "Livro bem legal",
     "category": "comedia",
     "author": "Jeff Kinney"
+}
+
+###
+POST http://localhost:3333/myBook/2ff4a977-2387-463e-8284-34db2cfcfdad
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImIxMDRkM2EwLTRjZGItNDk3YS1hOTQ5LTU2M2NiNzI0NTVkZiIsIm5hbWUiOiJEYW5pZWwgc2lsdmEiLCJpYXQiOjE3ODI1MjkzMTEsImV4cCI6MTc4MjUzMDIxMX0.BMuU44ovF1uWV8W8OVrEN0niA_k0wd9ZMi9Et5dlJNI
+
+###
+GET http://localhost:3333/myBooks?limit=5&page=1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImIxMDRkM2EwLTRjZGItNDk3YS1hOTQ5LTU2M2NiNzI0NTVkZiIsIm5hbWUiOiJEYW5pZWwgc2lsdmEiLCJpYXQiOjE3ODI1NTM5NzQsImV4cCI6MTc4MjU1NDg3NH0.uLQmPS3zG3idvf3k2lA0_tq7g0kilcU2iR8W1SDWbMA
+
+###
+PATCH http://localhost:3333/myBook/2ff4a977-2387-463e-8284-34db2cfcfdad
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImIxMDRkM2EwLTRjZGItNDk3YS1hOTQ5LTU2M2NiNzI0NTVkZiIsIm5hbWUiOiJEYW5pZWwgc2lsdmEiLCJpYXQiOjE3ODI1NTM5NzQsImV4cCI6MTc4MjU1NDg3NH0.uLQmPS3zG3idvf3k2lA0_tq7g0kilcU2iR8W1SDWbMA
+Content-Type: application/json
+
+{
+    "status": "LENDO"
 }

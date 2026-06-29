@@ -16,5 +16,5 @@ const controllerDeleteMyBook = makeDeleteMyBookController(database)
 
 routesMyBook.post("/myBook/:id", middleware, controllerCreateMyBook.execute.bind(controllerCreateMyBook))
 routesMyBook.get("/myBooks", middleware, redisMiddleware, controllerListMyBook.execute.bind(controllerListMyBook))
-routesMyBook.put("/myBook/:id", middleware, controllerReadMyBook.execute.bind(controllerReadMyBook))
+routesMyBook.patch("/myBook/:id", middleware, controllerReadMyBook.execute.bind(controllerReadMyBook))
 routesMyBook.delete("/myBook/:id", middleware, controllerDeleteMyBook.execute.bind(controllerDeleteMyBook))

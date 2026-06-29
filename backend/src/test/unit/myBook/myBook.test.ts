@@ -13,7 +13,7 @@ test("should update a myBook.", async () => {
 
     const createBook = await serviceMyBookCreate.execute("primeiro", "Danielzin")
 
-    const response = await serviceMyBookRead.execute("primeiro")
+    const response = await serviceMyBookRead.execute("primeiro", "FECHADO")
 
     expect(response).toBeTruthy()
 })
