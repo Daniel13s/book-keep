@@ -15,7 +15,6 @@ export class CreateMyBookService {
             description: book.description,
             author: book.author,
             category: book.category,
-            isReaded: false,
             userId
         }
 

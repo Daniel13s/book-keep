@@ -17,10 +17,10 @@ export class DatabaseMyBook {
     async list(id: string) {
         return this.myBook
     }
-    async read(id: string) {
+    async read(id: string, status: any) {
         const book = await this.myBook.find(b => b.id === id)
 
-        book.isReaded = true
+        book.isReaded = status
 
         return book
     }

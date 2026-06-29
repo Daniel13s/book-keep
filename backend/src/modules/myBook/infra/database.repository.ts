@@ -1,3 +1,4 @@
+import { EnumReadingStatusFieldUpdateOperationsInput } from "../../../generated/prisma/models.js";
 import { prisma } from "../../../infra/prisma.js";
 import { Idatabase } from "../shared/database.mybook.js";
 
@@ -32,11 +33,11 @@ export class MyBookRepository implements Idatabase {
 
         return response
     }
-    async read(id: string) {
+    async read(id: string, status: EnumReadingStatusFieldUpdateOperationsInput) {
         const response = await prisma.myBook.update({
             where: {id},
             data: {
-                isReaded: true
+                status: status
             }
         })
 

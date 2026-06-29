@@ -7,7 +7,7 @@ export class ListMyBookController {
         try{
             const {id} = userSchema.parse(req.user)
             const {search,limit, page} = querySchema.parse(req.query)
-
+            
             const response  = await this.service.execute(id, page, limit, search)
             return res.status(200).json({my_books: response})
         }catch(err){

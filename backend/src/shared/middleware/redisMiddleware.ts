@@ -13,12 +13,12 @@ export async function redisMiddleware(req:Request, res: Response, next: NextFunc
         const cachedData = await redisClient.get(key)
 
         if(cachedData) {
-            console.log(`[Redis] Cache HIT para chave ${key}`)
+            res.setHeader("X-cache", "HIT")
 
             return res.json(JSON.parse(cachedData))
         }
 
-        console.log(`[Postgres] Cache MISS para chave: ${key}`)
+        res.setHeader("X-cache", "MISS")
 
         const originaLJson = res.json
 
